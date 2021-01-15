@@ -21,7 +21,9 @@
     "seed": "node ./server/database/seed.js"
   },
   "dependencies": {
+    "date-fns": "^2.16.1",
     "express": "^4.17.1",
+    "faker": "^5.1.0",
     "mongoose": "^5.11.11",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
