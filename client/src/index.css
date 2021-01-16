@@ -6,6 +6,8 @@
 :root {
   --primary: #FF385C;
   --black: #222222;
+  --grey: #717171;
+  --gradient: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
 }
 
 body {
