@@ -17,7 +17,7 @@
   "scripts": {
     "start": "webpack -w --config ./webpack.config.js --mode development",
     "server": "nodemon ./server/index.js",
-    "test": "jest",
+    "test": "jest --verbose --watch",
     "seed": "node ./server/database/seed.js"
   },
   "dependencies": {
@@ -42,10 +42,17 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "react-test-renderer": "^17.0.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.14.0",
     "webpack-cli": "^4.3.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
   }
 }
