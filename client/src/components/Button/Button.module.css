@@ -1,0 +1,15 @@
+.btn {
+  background: var(--gradient);
+  padding: 14px 24px 14px 24px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.text {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
