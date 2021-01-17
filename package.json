@@ -17,7 +17,7 @@
   "scripts": {
     "start": "webpack -w --config ./webpack.config.js --mode development",
     "server": "nodemon ./server/index.js",
-    "test": "jest --verbose --watch",
+    "test": "jest --verbose",
     "seed": "node ./server/database/seed.js"
   },
   "dependencies": {
