@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.star {
+  color: var(--primary);
+}
+
+.avg {
+  color: var(--black);
+  font-weight: bold;
+}
+
+.total {
+  color: var(--grey);
+}
+
+.price {
+  color: var(--black);
+  font-weight: bold;
+  font-size: 2rem;
+}
