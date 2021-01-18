@@ -7,6 +7,6 @@ import App from '../client/src/App'
 describe('App', () => {
   it('renders the App component', () => {
     render(<App />);
-    expect(screen.getByText('Test')).toBeInTheDocument();
+    expect(screen.getByText('Check Availability')).toBeInTheDocument();
   });
 });
