@@ -5,3 +5,7 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0rem 0.6rem 1.6rem;
   width: 37.5rem
 }
+
+.price {
+  height: 50px;
+}
