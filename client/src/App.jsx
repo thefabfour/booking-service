@@ -3,6 +3,7 @@ import React from 'react';
 import Button from './components/Button';
 import PriceReview from './components/PriceReview';
 import Earliest from './components/Earliest';
+import DatePicker from './components/DatePicker';
 
 import classes from './App.module.css';
 
@@ -15,7 +16,12 @@ export default function App() {
       <div className={classes.earliest}>
         <Earliest date="Apr 13" />
       </div>
-      <div>Check In / Checkout Component</div>
+      <div>
+        <div>
+          <DatePicker />
+        </div>
+        <div>GUESTS COMPONENT</div>
+      </div>
       <Button>Check Availability</Button>
     </div>
   );

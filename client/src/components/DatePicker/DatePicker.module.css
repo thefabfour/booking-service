@@ -1,0 +1,30 @@
+.container {
+  border: 0.1rem solid var(--mediumGrey);
+  display: flex;
+  flex-direction: row;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+  height: 5.6rem;
+}
+
+.picker {
+  width: 50%;
+}
+
+.pickerL {
+  width: 50%;
+  border-right: 0.1rem solid var(--mediumGrey);
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1.2rem;
+  margin-left: 1.2rem;
+  margin-right: 1.2rem;
+}
+
+.date {
+  padding: 0.2rem 1.2rem 1rem 1.2rem;
+  color: var(--mediumGrey);
+}
