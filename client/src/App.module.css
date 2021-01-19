@@ -7,5 +7,9 @@
 }
 
 .price {
-  height: 50px;
+  height: 5.0rem;
+}
+
+.earliest {
+  margin-bottom: 1.6rem;
 }

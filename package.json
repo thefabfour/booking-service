@@ -15,8 +15,8 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w --config ./webpack.config.js --mode development",
-    "server": "nodemon ./server/index.js",
+    "build": "webpack -w --config ./webpack.config.js --mode development",
+    "start": "nodemon ./server/index.js",
     "test": "jest --verbose",
     "seed": "node ./server/database/seed.js"
   },
@@ -27,7 +27,8 @@
     "mongoose": "^5.11.11",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
