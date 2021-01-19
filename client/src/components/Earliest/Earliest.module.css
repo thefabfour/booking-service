@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  margin-right: 0.8rem;
+}
+
+.checkDate {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.checkDate:hover {
+  cursor: pointer;
+}
+
+.avail {
+  font-size: 1.2rem;
+}
