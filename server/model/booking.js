@@ -8,8 +8,8 @@ const bookingSchema = new Schema({
     infants: Number,
   },
   date: {
-    start: Date,
-    end: Date,
+    start: String,
+    end: String,
   },
 });
 

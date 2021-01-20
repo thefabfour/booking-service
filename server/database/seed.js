@@ -1,4 +1,5 @@
 const faker = require('faker');
+const moment = require('moment');
 
 const db = require('./index');
 const Booking = require('../model/booking');
@@ -18,8 +19,8 @@ for (let i = 0; i < 100; i += 1) {
       infants: faker.random.number({ min: 0, max: 2 }),
     },
     date: {
-      start: faker.date.between('01-30-2021', '02-10-2021'),
-      end: faker.date.between('02-12-2021', '02-16-2021'),
+      start: moment(faker.date.between('01-30-2021', '02-10-2021')).format('MM-DD-YYYY'),
+      end: moment(faker.date.between('02-12-2021', '02-16-2021')).format('MM-DD-YYYY'),
     },
   });
   secondary.push({
@@ -30,8 +31,8 @@ for (let i = 0; i < 100; i += 1) {
       infants: faker.random.number({ min: 0, max: 2 }),
     },
     date: {
-      start: faker.date.between('02-20-2021', '03-05-2021'),
-      end: faker.date.between('03-08-2021', '03-12-2021'),
+      start: moment(faker.date.between('02-20-2021', '03-05-2021')).format('MM-DD-YYYY'),
+      end: moment(faker.date.between('03-08-2021', '03-12-2021')).format('MM-DD-YYYY'),
     },
   });
 }
