@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Button from './components/Button';
 import PriceReview from './components/PriceReview';
 import Earliest from './components/Earliest';
 import DatePicker from './components/DatePicker';
+import CalendarCard from './components/CalendarCard';
 
 import classes from './App.module.css';
 
 export default function App() {
+  const [showCalendar, setShowCalendar] = useState(false);
+
+  const toggleHandler = () => {
+    setShowCalendar(!showCalendar);
+  };
+
+  const CCard = showCalendar ? <CalendarCard /> : null;
   return (
     <div className={classes.container}>
       <div className={classes.price}>
@@ -18,7 +26,8 @@ export default function App() {
       </div>
       <div>
         <div>
-          <DatePicker />
+          <DatePicker toggle={toggleHandler} />
+          {CCard}
         </div>
         <div>GUESTS COMPONENT</div>
       </div>

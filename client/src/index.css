@@ -12,13 +12,14 @@ body {
   font-size: 1.4rem;
   color: var(--black);
   font-family: 'Airbnb Cereal App', system-ui, -apple-system, BlinkMacSystemFont, Roboto, Ubuntu, sans-serif;
-  background-color: #fff;
+  background-color: var(--white);
   -webkit-font-smoothing: antialiased;
 }
 
 :root {
   --primary: #FF385C;
   --black: #222222;
+  --white: #fff;
   --lightGrey: #dddddd;
   --mediumGrey: #b0b0b0;
   --grey: #717171;

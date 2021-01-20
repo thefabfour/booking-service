@@ -1,0 +1,14 @@
+.dayList {
+  list-style: none;
+  margin: 0.1rem 0rem;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.dayHeader {
+  width: 4.2rem;
+}
