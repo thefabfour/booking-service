@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaRegKeyboard } from 'react-icons/fa';
-import moment from 'moment';
+import axios from '../../../axios';
 import PropTypes from 'prop-types';
 
 import Calendar from '../Calendar';
@@ -8,15 +8,17 @@ import Calendar from '../Calendar';
 import classes from './CalendarCard.module.css';
 
 export default function CalendarCard() {
-  const [dateObj, setDateObj] = useState(moment());
-  const [nextMonth, setNextMonth] = useState(moment().add(1, 'M'));
+  // const [dateObj, setDateObj] = useState(false);
 
-  console.log(dateObj.format());
-
-  const firstDayOfMonth = (monthObj) => {
-    const firstDay = moment(monthObj).startOf('month').format('d');
-    return firstDay;
-  };
+  useEffect(() => {
+    axios.get('/bookings/30506199')
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  }, []);
 
   return (
     <div className={classes.container}>
@@ -29,14 +31,14 @@ export default function CalendarCard() {
       </div>
       <div className={classes.calendar}>
         <Calendar
-          month={dateObj.format('MMMM')}
-          year={dateObj.year()}
-          firstDay={+firstDayOfMonth(dateObj)}
+          month="January"
+          year={2021}
+          firstDay={5}
         />
         <Calendar
-          month={nextMonth.format('MMMM')}
-          year={nextMonth.year()}
-          firstDay={+firstDayOfMonth(nextMonth)}
+          month="February"
+          year={2021}
+          firstDay={1}
         />
       </div>
       <div className={classes.space}>
