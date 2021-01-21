@@ -1,11 +1,5 @@
-const model = require('../model');
+const cal = require('./calendar');
 
 module.exports = {
-  get: (req, res) => {
-    const { propertyId } = req.params;
-    model.Booking.find({ propertyId })
-      .then((data) => {
-        res.send(data);
-      });
-  },
+  get: (req, res) => cal(req, res),
 };

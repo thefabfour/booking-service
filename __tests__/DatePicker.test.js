@@ -6,7 +6,7 @@ import DatePicker from '../client/src/components/DatePicker';
 
 describe('DatePicker', () => {
   it('renders the DatePicker component', () => {
-    render(<DatePicker />);
+    render(<DatePicker toggle={() => {}}/>);
     expect(screen.getByText('CHECK-IN')).toBeInTheDocument();
   });
 });
