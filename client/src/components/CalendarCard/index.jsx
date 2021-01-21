@@ -8,17 +8,36 @@ import Calendar from '../Calendar';
 import classes from './CalendarCard.module.css';
 
 export default function CalendarCard() {
-  // const [dateObj, setDateObj] = useState(false);
+  const [calendar, setCalendar] = useState([]);
+  const [position, setPosition] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('/bookings/30506199')
+    axios.get('/bookings/30506103')
       .then((response) => {
-        console.log(response);
+        setCalendar(response.data.calendarMonths);
+        setLoading(false);
       })
       .catch((err) => {
         throw new Error(err);
       });
   }, []);
+
+  const forwardMonth = () => {
+    if (position + 2 < calendar.length) {
+      setPosition((prevState) => prevState + 1);
+    }
+  };
+
+  const backMonth = () => {
+    if (position > 0) {
+      setPosition((prevState) => prevState - 1);
+    }
+  };
+
+  if (loading) {
+    return null;
+  }
 
   return (
     <div className={classes.container}>
@@ -31,14 +50,18 @@ export default function CalendarCard() {
       </div>
       <div className={classes.calendar}>
         <Calendar
-          month="January"
-          year={2021}
-          firstDay={5}
+          month={calendar[position].month}
+          year={calendar[position].year}
+          days={calendar[position].days}
+          direction="left"
+          move={backMonth}
         />
         <Calendar
-          month="February"
-          year={2021}
-          firstDay={1}
+          month={calendar[position + 1].month}
+          year={calendar[position + 1].year}
+          days={calendar[position + 1].days}
+          direction="right"
+          move={forwardMonth}
         />
       </div>
       <div className={classes.space}>
