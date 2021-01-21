@@ -19,3 +19,8 @@
   flex-direction: row;
   flex-wrap: nowrap;
 }
+
+.min {
+  color: var(--grey);
+  margin-top: .8rem;
+}

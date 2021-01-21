@@ -29,11 +29,14 @@
   margin: 0.1rem 0rem;
   text-align: center;
   line-height: 3.8rem;
+  cursor: pointer;
 }
 
 .booked {
   text-decoration: line-through;
   color: var(--mediumGrey);
+  cursor: default;
+  user-select: none;
 }
 
 .title {

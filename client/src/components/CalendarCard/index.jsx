@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaRegKeyboard } from 'react-icons/fa';
 import axios from '../../../axios';
-import PropTypes from 'prop-types';
 
 import Calendar from '../Calendar';
 
@@ -43,8 +42,8 @@ export default function CalendarCard() {
     <div className={classes.container}>
       <div className={classes.space}>
         <div>
-          <div>Select Dates</div>
-          <div>Minimum stay: 2 nights</div>
+          <h2>Select Dates</h2>
+          <div className={classes.min}>Minimum stay: 2 nights</div>
         </div>
         <div>CHECK-IN / CHECKOUT</div>
       </div>
