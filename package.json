@@ -18,7 +18,8 @@
     "build": "webpack -w --config ./webpack.config.js --mode development",
     "seed": "node ./server/database/seed.js",
     "start": "nodemon ./server/index.js",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "lint": "eslint . --ext .js,.jsx --ignore-pattern node_modules/ --ignore-pattern __tests__/ --ignore-pattern client/dist/"
   },
   "jest": {
     "moduleNameMapper": {
