@@ -2,7 +2,7 @@ const { Property } = require('../model');
 
 const prop = (req, res) => {
   const { propertyId } = req.params;
-  Property.find({ propertyId })
+  Property.findOne({ propertyId })
     .then((data) => {
       res.send(data);
     })
