@@ -20,7 +20,13 @@ export default function PriceReview({ price, avg, total }) {
 }
 
 PriceReview.propTypes = {
-  price: PropTypes.number.isRequired,
-  avg: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
+  price: PropTypes.number,
+  avg: PropTypes.number,
+  total: PropTypes.number,
+};
+
+PriceReview.defaultProps = {
+  price: null,
+  avg: null,
+  total: null,
 };

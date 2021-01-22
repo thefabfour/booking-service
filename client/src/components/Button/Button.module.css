@@ -6,10 +6,16 @@
   border-radius: 8px;
   cursor: pointer;
   width: 100%;
+  transition: 0.1s;
 }
 
 .text {
   color: #fff;
   font-weight: 500;
   font-size: 1.6rem;
+}
+
+.btn:active {
+  transform: scale(0.95);
+  background: var(--radial);
 }

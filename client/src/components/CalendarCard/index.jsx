@@ -16,7 +16,7 @@ export default function CalendarCard({ clearDates, toggle, dateSelect }) {
   useEffect(() => {
     axios.get('/bookings/30506103')
       .then((response) => {
-        setCalendar(response.data.calendarMonths);
+        setCalendar(response.data);
         setLoading(false);
       })
       .catch((err) => {
