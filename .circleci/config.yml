@@ -1,34 +1,32 @@
 version: 2.1
 
-jobs:
-  build:
-    docker:
-      - image: circleci/node:14.15.4
+orbs:
+  node: circleci/node@4.1
 
-    working_directory: ~/repo
+jobs:
+  lint:
+    docker:
+      - image: cimg/node:14.15.4
 
     steps:
       - checkout
+      - node/install-packages:
+          pkg-manager: yarn 
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: yarn install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      # run tests!
       - run: yarn lint
-      - run: yarn test
+  test:
+    docker:
+      - image: cimg/node:14.15.4
+
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn 
+
+      - run: yarn lint
 
 workflows:
   lint-test:
     jobs:
-      - build
+      - lint
+      - test
