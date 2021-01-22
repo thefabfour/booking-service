@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import moment from 'moment';
 
 import Button from './components/Button';
 import PriceReview from './components/PriceReview';
@@ -11,12 +12,32 @@ import classes from './App.module.css';
 
 export default function App() {
   const [showCalendar, setShowCalendar] = useState(false);
+  const [checkIn, setCheckIn] = useState(null);
+  const [checkOut, setCheckOut] = useState(null);
 
   const toggleHandler = () => {
     setShowCalendar(!showCalendar);
   };
 
-  const CCard = showCalendar ? <CalendarCard /> : null;
+  const dateSelect = (day, inOrOut) => {
+    if (inOrOut === 'in') {
+      setCheckIn(day);
+    } else if (moment(checkIn).diff(moment(day)) < 0) {
+      setCheckOut(day);
+    }
+  };
+
+  const clearDates = () => {
+    setCheckIn(null);
+    setCheckOut(null);
+  };
+
+  const CCard = showCalendar
+    ? <CalendarCard clearDates={clearDates} toggle={toggleHandler} dateSelect={dateSelect} />
+    : null;
+
+  const btnText = checkIn && checkOut ? 'Reserve' : 'Check Availability';
+
   return (
     <div className={classes.container}>
       <div className={classes.price}>
@@ -27,14 +48,18 @@ export default function App() {
       </div>
       <div className={classes.pickers}>
         <div>
-          <DatePicker toggle={toggleHandler} />
+          <DatePicker
+            toggle={toggleHandler}
+            checkIn={checkIn}
+            checkOut={checkOut}
+          />
           {CCard}
         </div>
         <div>
           <Guests />
         </div>
       </div>
-      <Button>Check Availability</Button>
+      <Button>{btnText}</Button>
     </div>
   );
 }
