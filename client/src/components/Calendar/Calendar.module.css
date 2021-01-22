@@ -25,11 +25,16 @@
 
 .day {
   width: 4rem;
-  height: 3.8rem;
+  height: 4rem;
   margin: 0.1rem 0rem;
   text-align: center;
-  line-height: 3.8rem;
+  line-height: 4rem;
   cursor: pointer;
+  border-radius: 4rem;
+}
+
+.day:hover {
+  box-shadow: 0 0 0 0.2rem var(--black);
 }
 
 .booked {
@@ -37,6 +42,10 @@
   color: var(--mediumGrey);
   cursor: default;
   user-select: none;
+}
+
+.booked:hover {
+  box-shadow: none !important;
 }
 
 .title {
@@ -69,4 +78,12 @@
   height: 3rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.selectDate {
+
+}
+
+.thruDate {
+  
 }

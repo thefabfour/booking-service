@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { FaRegKeyboard } from 'react-icons/fa';
 import axios from '../../../axios';
 
@@ -6,9 +7,10 @@ import Calendar from '../Calendar';
 
 import classes from './CalendarCard.module.css';
 
-export default function CalendarCard() {
+export default function CalendarCard({ clearDates, toggle, dateSelect }) {
   const [calendar, setCalendar] = useState([]);
   const [position, setPosition] = useState(0);
+  const [inOrOut, setInOrOut] = useState('in');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,6 +23,21 @@ export default function CalendarCard() {
         throw new Error(err);
       });
   }, []);
+
+  const dateSelectHandler = (date) => {
+    dateSelect(date, inOrOut);
+    if (inOrOut === 'in') {
+      setInOrOut('out');
+    } else {
+      setInOrOut('out');
+      toggle();
+    }
+  };
+
+  const clearDateHandler = () => {
+    clearDates();
+    setInOrOut('in');
+  };
 
   const forwardMonth = () => {
     if (position + 2 < calendar.length) {
@@ -54,6 +71,7 @@ export default function CalendarCard() {
           days={calendar[position].days}
           direction="left"
           move={backMonth}
+          dateSelect={dateSelectHandler}
         />
         <Calendar
           month={calendar[position + 1].month}
@@ -61,12 +79,16 @@ export default function CalendarCard() {
           days={calendar[position + 1].days}
           direction="right"
           move={forwardMonth}
+          dateSelect={dateSelectHandler}
         />
       </div>
       <div className={classes.space}>
         <FaRegKeyboard size={20} />
         <div>
-          Clear Dates
+          <button type="button" className={classes.clear} onClick={clearDateHandler}>Clear Dates</button>
+          <button type="button" className={classes.close} onClick={toggle}>
+            Close
+          </button>
         </div>
       </div>
     </div>
@@ -74,5 +96,7 @@ export default function CalendarCard() {
 }
 
 CalendarCard.propTypes = {
-
+  clearDates: PropTypes.func.isRequired,
+  toggle: PropTypes.func.isRequired,
+  dateSelect: PropTypes.func.isRequired,
 };

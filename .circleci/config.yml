@@ -23,7 +23,9 @@ jobs:
       - run: yarn test
 
 workflows:
-  build-lint-test:
+  lint:
     jobs:
       - lint
+  test:
+    jobs:
       - test
