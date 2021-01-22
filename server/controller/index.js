@@ -1,5 +1,7 @@
 const cal = require('./calendar');
+const prop = require('./property');
 
 module.exports = {
-  get: (req, res) => cal(req, res),
+  getCal: (req, res) => cal(req, res),
+  getProp: (req, res) => prop(req, res),
 };

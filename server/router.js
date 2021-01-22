@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const controller = require('./controller');
 
-router.get('/:propertyId', controller.get);
+router.get('/bookings/:propertyId', controller.getCal);
+router.get('/:propertyId', controller.getProp);
 
 module.exports = router;

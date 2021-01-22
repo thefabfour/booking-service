@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 db.once('open', () => console.log('Connected to MongoDB'));
 
 app.use(express.json());
-app.use('/api/bookings', router);
+app.use('/api', router);
 
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 
