@@ -24,7 +24,7 @@ export default function Calendar(props) {
   const calendarMonth = days.map((day, idx) => {
     let key = idx;
     let dayNumber = null;
-    let dayClasses = classes.day;
+    let dayClasses = classes.empty;
     let select = null;
 
     if (day) {
@@ -32,6 +32,7 @@ export default function Calendar(props) {
       dayNumber = day.day;
 
       if (day.avail) {
+        dayClasses = classes.day;
         const date = moment(`${year}-${month}-${day.day}`, 'YYYY-MMMM-D').format('M/D/YYYY');
         select = () => dateSelect(date);
       } else {
