@@ -32,7 +32,7 @@ export default function Calendar(props) {
       dayNumber = day.day;
 
       if (day.avail) {
-        const date = moment(`${year}, ${month}, ${day.day}`).format('M/D/YYYY');
+        const date = moment(`${year}-${month}-${day.day}`, 'YYYY-MMMM-D').format('M/D/YYYY');
         select = () => dateSelect(date);
       } else {
         dayClasses = `${classes.day} ${classes.booked}`;

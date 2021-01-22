@@ -15,6 +15,7 @@ describe('Calendar', () => {
         days={calendar[0].days}
         direction="left"
         move={() => {}}
+        dateSelect={() => {}}
       />);
     expect(screen.getByText('January 2021')).toBeInTheDocument();
   });
