@@ -23,7 +23,7 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn 
 
-      - run: yarn lint
+      - run: yarn test
 
 workflows:
   lint-test:
