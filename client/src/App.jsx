@@ -50,9 +50,15 @@ export default function App() {
     setCheckOut(null);
   };
 
-  const CCard = showCalendar
-    ? <CalendarCard clearDates={clearDates} toggle={toggleHandler} dateSelect={dateSelect} />
-    : null;
+  const CCard = showCalendar ? (
+    <CalendarCard
+      clearDates={clearDates}
+      toggle={toggleHandler}
+      dateSelect={dateSelect}
+      checkIn={checkIn}
+      checkOut={checkOut}
+    />
+  ) : null;
 
   const btnText = checkIn && checkOut ? 'Reserve' : 'Check Availability';
 
@@ -68,6 +74,7 @@ export default function App() {
 
   return (
     <div className={classes.container}>
+      {showCalendar ? <div className={classes.background} onClick={toggleHandler} aria-hidden="true" /> : null}
       <div className={classes.price}>
         <PriceReview price={home.price} avg={home.avg} total={home.totalRev} />
       </div>
