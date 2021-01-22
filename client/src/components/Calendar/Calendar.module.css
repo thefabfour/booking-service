@@ -14,6 +14,7 @@
   text-align: center;
   font-weight: bold;
   color: var(--mediumGrey);
+  user-select: none;
 }
 
 .calendar {
@@ -21,6 +22,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.empty {
+  width: 4rem;
+  height: 4rem;
+  margin: 0.1rem 0rem;
+  line-height: 4rem;
+  border-radius: 4rem;
 }
 
 .day {

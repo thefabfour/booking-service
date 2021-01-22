@@ -10,7 +10,13 @@ const secondary = [];
 
 for (let i = 0; i < 100; i += 1) {
   const propertyId = 30506101 + i;
-  primary.push({ propertyId });
+  primary.push({
+    propertyId,
+    price: faker.random.number({ min: 150, max: 250 }),
+    cleaning: Math.floor(faker.random.number({ min: 150, max: 250 }) * 0.12),
+    avg: faker.random.float({ min: 3, max: 5 }),
+    totalRev: faker.random.number({ min: 50, max: 200 }),
+  });
   secondary.push({
     propertyId,
     guest: {

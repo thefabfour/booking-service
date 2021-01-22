@@ -8,6 +8,11 @@
   cursor: pointer;
 }
 
+.insideCard {
+  border-bottom-left-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+}
+
 .picker {
   width: 50%;
 }

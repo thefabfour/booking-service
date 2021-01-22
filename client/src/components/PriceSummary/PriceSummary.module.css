@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.noCharge {
+  margin-bottom: 1.2rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1.2rem;
+  font-size: 1.6rem;
+}
+
+.lastItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 2.4rem;
+  margin-top: 1.6rem;
+  border-top: 1px solid var(--mediumGrey);
+  font-weight: bold;
+  font-size: 1.6rem;
+}

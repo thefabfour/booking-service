@@ -25,4 +25,5 @@ body {
   --mediumGrey: #b0b0b0;
   --grey: #717171;
   --gradient: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
+  --radial: radial-gradient(circle at center, #FF385C 0%, #E61E4D 50%, #E31C5F 90%, #D70466 100%);
 }

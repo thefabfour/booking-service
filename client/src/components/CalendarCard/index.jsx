@@ -4,10 +4,19 @@ import { FaRegKeyboard } from 'react-icons/fa';
 import axios from '../../../axios';
 
 import Calendar from '../Calendar';
+import DatePicker from '../DatePicker';
 
 import classes from './CalendarCard.module.css';
 
-export default function CalendarCard({ clearDates, toggle, dateSelect }) {
+export default function CalendarCard(props) {
+  const {
+    clearDates,
+    toggle,
+    dateSelect,
+    checkIn,
+    checkOut,
+  } = props;
+
   const [calendar, setCalendar] = useState([]);
   const [position, setPosition] = useState(0);
   const [inOrOut, setInOrOut] = useState('in');
@@ -16,7 +25,7 @@ export default function CalendarCard({ clearDates, toggle, dateSelect }) {
   useEffect(() => {
     axios.get('/bookings/30506103')
       .then((response) => {
-        setCalendar(response.data.calendarMonths);
+        setCalendar(response.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -62,7 +71,14 @@ export default function CalendarCard({ clearDates, toggle, dateSelect }) {
           <h2>Select Dates</h2>
           <div className={classes.min}>Minimum stay: 2 nights</div>
         </div>
-        <div>CHECK-IN / CHECKOUT</div>
+        <div className={classes.pickContainer}>
+          <DatePicker
+            toggle={() => {}}
+            checkIn={checkIn}
+            checkOut={checkOut}
+            card
+          />
+        </div>
       </div>
       <div className={classes.calendar}>
         <Calendar
@@ -99,4 +115,11 @@ CalendarCard.propTypes = {
   clearDates: PropTypes.func.isRequired,
   toggle: PropTypes.func.isRequired,
   dateSelect: PropTypes.func.isRequired,
+  checkIn: PropTypes.string,
+  checkOut: PropTypes.string,
+};
+
+CalendarCard.defaultProps = {
+  checkIn: null,
+  checkOut: null,
 };

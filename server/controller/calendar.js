@@ -1,5 +1,5 @@
 const moment = require('moment');
-const model = require('../model');
+const { Booking } = require('../model');
 
 const cal = (req, res) => {
   const calendarMonths = [];
@@ -29,7 +29,7 @@ const cal = (req, res) => {
   }
 
   const { propertyId } = req.params;
-  model.Booking.find({ propertyId })
+  Booking.find({ propertyId })
     .then((data) => {
       data.forEach(({ date }) => {
         const dateStart = moment(date.start, 'MM-DD-YYYY');
@@ -75,7 +75,7 @@ const cal = (req, res) => {
           });
         }
       });
-      res.send({ calendarMonths });
+      res.send(calendarMonths);
     });
 };
 
