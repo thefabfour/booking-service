@@ -16,16 +16,48 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -w --config ./webpack.config.js --mode development",
+    "lint": "eslint . --ext .js,.jsx --ignore-pattern node_modules/ --ignore-pattern __tests__/ --ignore-pattern client/dist/",
     "seed": "node ./server/database/seed.js",
     "start": "nodemon ./server/index.js",
-    "test": "jest --verbose",
-    "lint": "eslint . --ext .js,.jsx --ignore-pattern node_modules/ --ignore-pattern __tests__/ --ignore-pattern client/dist/"
+    "test": "jest"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react"
+    ],
+    "extends": [
+      "plugin:react/recommended",
+      "airbnb"
+    ],
+    "rules": {},
+    "ignorePatterns": "__tests__"
   },
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
-    }
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/config/setupTests.js"
+    ],
+    "verbose": true
   },
   "dependencies": {
     "axios": "^0.21.1",

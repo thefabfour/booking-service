@@ -87,6 +87,7 @@ export default function App() {
             toggle={toggleHandler}
             checkIn={checkIn}
             checkOut={checkOut}
+            card={false}
           />
           {CCard}
         </div>
