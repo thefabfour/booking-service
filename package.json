@@ -47,7 +47,7 @@
       "airbnb"
     ],
     "rules": {},
-    "ignorePatterns": "__tests__"
+    "ignorePatterns": ["__tests__", "config"]
   },
   "jest": {
     "moduleNameMapper": {
