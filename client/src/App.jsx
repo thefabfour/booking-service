@@ -14,6 +14,7 @@ import classes from './App.module.css';
 
 export default function App() {
   const [status, setStatus] = useState('loading');
+  const [errMessage, setErrMessage] = useState('');
   const [showCalendar, setShowCalendar] = useState(false);
   const [checkIn, setCheckIn] = useState(null);
   const [checkOut, setCheckOut] = useState(null);
@@ -31,7 +32,8 @@ export default function App() {
         setStatus('success');
       })
       .catch((err) => {
-        throw new Error(err);
+        setStatus('error');
+        setErrMessage(err.response.data.message);
       });
   }, []);
 
@@ -75,6 +77,7 @@ export default function App() {
   ) : null;
 
   if (status === 'loading') return null;
+  if (status === 'error') return <div>{errMessage}</div>;
 
   return (
     <div className={classes.container}>

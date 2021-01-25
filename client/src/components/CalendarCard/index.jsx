@@ -20,16 +20,18 @@ export default function CalendarCard(props) {
   const [calendar, setCalendar] = useState([]);
   const [position, setPosition] = useState(0);
   const [inOrOut, setInOrOut] = useState('in');
-  const [loading, setLoading] = useState(true);
+  const [status, setStatus] = useState('loading');
+  const [errMessage, setErrMessage] = useState('');
 
   useEffect(() => {
     axios.get('/bookings/30506103')
       .then((response) => {
         setCalendar(response.data);
-        setLoading(false);
+        setStatus('success');
       })
       .catch((err) => {
-        throw new Error(err);
+        setStatus('error');
+        setErrMessage(err.response.data.message);
       });
   }, []);
 
@@ -60,9 +62,8 @@ export default function CalendarCard(props) {
     }
   };
 
-  if (loading) {
-    return null;
-  }
+  if (status === 'loading') return null;
+  if (status === 'error') return <div>{errMessage}</div>;
 
   return (
     <div className={classes.container}>
