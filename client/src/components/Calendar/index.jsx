@@ -57,7 +57,7 @@ export default function Calendar(props) {
       <div className={classes.titleBar}>
         <div>
           {direction === 'left' ? (
-            <button type="button" className={classes.arrow} onClick={move}>
+            <button type="button" className={classes.arrow} onClick={move} data-testid="back">
               <IoIosArrowBack size={16} />
             </button>
           ) : null}
@@ -65,7 +65,7 @@ export default function Calendar(props) {
         <h3 className={classes.title}>{`${month} ${year}`}</h3>
         <div>
           {direction === 'right' ? (
-            <button type="button" className={classes.arrow} onClick={move}>
+            <button type="button" className={classes.arrow} onClick={move} data-testid="forward">
               <IoIosArrowForward size={16} />
             </button>
           ) : null}

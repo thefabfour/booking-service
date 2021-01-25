@@ -16,14 +16,22 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -w --config ./webpack.config.js --mode development",
-    "lint": "eslint . --ext .js,.jsx --ignore-pattern node_modules/ --ignore-pattern __tests__/ --ignore-pattern client/dist/",
+    "lint": "eslint . --ext .js,.jsx",
     "seed": "node ./server/database/seed.js",
     "start": "nodemon ./server/index.js",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --collect-coverage"
   },
   "babel": {
     "presets": [
-      "@babel/preset-env",
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "14"
+          }
+        }
+      ],
       "@babel/preset-react"
     ]
   },
@@ -47,7 +55,11 @@
       "airbnb"
     ],
     "rules": {},
-    "ignorePatterns": ["__tests__", "config"]
+    "ignorePatterns": [
+      "__tests__",
+      "mocks",
+      "/client/dist"
+    ]
   },
   "jest": {
     "moduleNameMapper": {
@@ -55,7 +67,7 @@
       "\\.(css|less)$": "identity-obj-proxy"
     },
     "setupFilesAfterEnv": [
-      "<rootDir>/config/setupTests.js"
+      "<rootDir>/mocks/setupTests.js"
     ],
     "verbose": true
   },
@@ -76,6 +88,7 @@
     "@babel/preset-react": "^7.12.10",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
+    "@testing-library/user-event": "^12.6.2",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
@@ -87,6 +100,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
+    "msw": "^0.25.0",
     "react-test-renderer": "^17.0.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.14.0",
