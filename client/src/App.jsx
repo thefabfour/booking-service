@@ -13,6 +13,7 @@ import PriceSummary from './components/PriceSummary';
 import classes from './App.module.css';
 
 export default function App() {
+  const [status, setStatus] = useState('loading');
   const [showCalendar, setShowCalendar] = useState(false);
   const [checkIn, setCheckIn] = useState(null);
   const [checkOut, setCheckOut] = useState(null);
@@ -27,6 +28,7 @@ export default function App() {
     axios.get('/30506103')
       .then((response) => {
         setHome(response.data);
+        setStatus('success');
       })
       .catch((err) => {
         throw new Error(err);
@@ -40,7 +42,7 @@ export default function App() {
   const dateSelect = (day, inOrOut) => {
     if (inOrOut === 'in') {
       setCheckIn(day);
-    } else if (moment(checkIn).diff(moment(day)) < 0) {
+    } else if (moment(checkIn, 'MM-DD-YYYY').diff(moment(day, 'MM-DD-YYYY')) < 0) {
       setCheckOut(day);
     }
   };
@@ -66,11 +68,13 @@ export default function App() {
     <div className={classes.summary}>
       <PriceSummary
         price={home.price}
-        nights={moment(checkOut).diff(moment(checkIn), 'days')}
+        nights={moment(checkOut, 'MM-DD-YYYY').diff(moment(checkIn, 'MM-DD-YYYY'), 'days')}
         cleaning={home.cleaning}
       />
     </div>
   ) : null;
+
+  if (status === 'loading') return null;
 
   return (
     <div className={classes.container}>
@@ -87,6 +91,7 @@ export default function App() {
             toggle={toggleHandler}
             checkIn={checkIn}
             checkOut={checkOut}
+            card={false}
           />
           {CCard}
         </div>
