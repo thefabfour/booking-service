@@ -24,7 +24,7 @@ export default function CalendarCard(props) {
   const [errMessage, setErrMessage] = useState('');
 
   useEffect(() => {
-    axios.get('/bookings/30506103')
+    axios.get('/bookings')
       .then((response) => {
         setCalendar(response.data);
         setStatus('success');

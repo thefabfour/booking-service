@@ -1,21 +1,21 @@
+/* eslint-disable no-console */
 const express = require('express');
 const path = require('path');
 
+const PUBLIC_DIR = path.resolve(__dirname, '../client/dist');
 const router = require('./router');
 const db = require('./database');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// eslint-disable-next-line no-console
 db.once('open', () => console.log('Connected to MongoDB'));
 
 app.use(express.json());
-app.use('/api', router);
 
-app.use(express.static(path.resolve(__dirname, '../client/dist')));
+app.use('/rooms/:propertyId', express.static(PUBLIC_DIR));
+app.use('/api/rooms/', router);
 
 app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
   console.log(`Listening on PORT: ${PORT}`);
 });
