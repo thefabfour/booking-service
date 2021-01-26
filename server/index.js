@@ -5,7 +5,7 @@ const router = require('./router');
 const db = require('./database');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // eslint-disable-next-line no-console
 db.once('open', () => console.log('Connected to MongoDB'));
@@ -15,7 +15,7 @@ app.use('/api', router);
 
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`Listening on PORT: ${PORT}`);
 });
