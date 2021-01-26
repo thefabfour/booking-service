@@ -26,7 +26,7 @@ export default function App() {
   });
 
   useEffect(() => {
-    axios.get('/30506103')
+    axios.get('/')
       .then((response) => {
         setHome(response.data);
         setStatus('success');
