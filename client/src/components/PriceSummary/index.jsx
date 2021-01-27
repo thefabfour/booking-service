@@ -12,8 +12,8 @@ export default function PriceSummary(props) {
 
   const sum = price * nights;
   const cleanFee = cleaning * nights;
-  const serviceFee = sum * 0.12;
-  const taxSum = sum * 0.1;
+  const serviceFee = Math.round(sum * 0.12);
+  const taxSum = Math.round(sum * 0.09);
   const total = sum + cleanFee + serviceFee + taxSum;
 
   return (
