@@ -22,7 +22,7 @@ module.exports = {
             options: {
               importLoaders: 1,
               modules: {
-                localIdentName: '[name]__[local]--[hash:base64:5]',
+                localIdentName: '[name]__[local]--[hash:base64:6]',
               },
             },
           },
