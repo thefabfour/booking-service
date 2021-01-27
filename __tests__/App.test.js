@@ -95,7 +95,7 @@ describe('App', () => {
   it('shows server error if request fails', async () => {
     const testErrorMessage = 'THIS IS A TEST FAILURE';
     server.use(
-      rest.get('http://localhost:3001/api/rooms/:id', (req, res, ctx) => {
+      rest.get('/api/rooms/:id/booking', (req, res, ctx) => {
         return res(ctx.status(500), ctx.json({ message: testErrorMessage }))
       })
     );

@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 
 const PUBLIC_DIR = path.resolve(__dirname, '../client/dist');
@@ -11,9 +12,10 @@ const PORT = process.env.PORT || 3001;
 
 db.once('open', () => console.log('Connected to MongoDB'));
 
+app.use(cors());
 app.use(express.json());
+app.use(express.static(PUBLIC_DIR));
 
-app.use('/rooms/:propertyId', express.static(PUBLIC_DIR));
 app.use('/api/rooms/', router);
 
 app.listen(PORT, () => {
