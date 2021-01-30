@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import moment from 'moment';
 import axios from '../axios';
 
@@ -6,11 +6,12 @@ import Button from './components/Button';
 import PriceReview from './components/PriceReview';
 import Earliest from './components/Earliest';
 import DatePicker from './components/DatePicker';
-import CalendarCard from './components/CalendarCard';
 import Guests from './components/Guests';
-import PriceSummary from './components/PriceSummary';
 
 import classes from './App.module.css';
+
+const CalendarCard = React.lazy(() => import('./components/CalendarCard'));
+const PriceSummary = React.lazy(() => import('./components/PriceSummary'));
 
 export default function App() {
   const [status, setStatus] = useState('loading');
@@ -55,24 +56,28 @@ export default function App() {
   };
 
   const CCard = showCalendar ? (
-    <CalendarCard
-      clearDates={clearDates}
-      toggle={toggleHandler}
-      dateSelect={dateSelect}
-      checkIn={checkIn}
-      checkOut={checkOut}
-    />
+    <Suspense fallback={null}>
+      <CalendarCard
+        clearDates={clearDates}
+        toggle={toggleHandler}
+        dateSelect={dateSelect}
+        checkIn={checkIn}
+        checkOut={checkOut}
+      />
+    </Suspense>
   ) : null;
 
   const btnText = checkIn && checkOut ? 'Reserve' : 'Check Availability';
 
   const priceSum = checkIn && checkOut ? (
     <div className={classes.summary}>
-      <PriceSummary
-        price={home.price}
-        nights={moment(checkOut, 'MM-DD-YYYY').diff(moment(checkIn, 'MM-DD-YYYY'), 'days')}
-        cleaning={home.cleaning}
-      />
+      <Suspense fallback={null}>
+        <PriceSummary
+          price={home.price}
+          nights={moment(checkOut, 'MM-DD-YYYY').diff(moment(checkIn, 'MM-DD-YYYY'), 'days')}
+          cleaning={home.cleaning}
+        />
+      </Suspense>
     </div>
   ) : null;
 

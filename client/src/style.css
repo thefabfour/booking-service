@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+  color: var(--black);
+  font-family: 'Airbnb Cereal App', system-ui, -apple-system, BlinkMacSystemFont, Roboto, Ubuntu, sans-serif;
+  background-color: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --primary: #FF385C;
+  --black: #222222;
+  --white: #fff;
+  --lightestGrey: #dddddd50;
+  --lightGrey: #dddddd;
+  --mediumGrey: #b0b0b0;
+  --grey: #717171;
+  --gradient: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
+  --radial: radial-gradient(circle at center, #FF385C 0%, #E61E4D 50%, #E31C5F 90%, #D70466 100%);
+}
+
+@font-face {
+  font-family: 'Airbnb Cereal App';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Airbnb Cereal App'), url('https://fonts.cdnfonts.com/s/22260/AirbnbCerealBook.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Airbnb Cereal App';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Airbnb Cereal App'), url('https://fonts.cdnfonts.com/s/22260/AirbnbCerealLight.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Airbnb Cereal App';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Airbnb Cereal App'), url('https://fonts.cdnfonts.com/s/22260/AirbnbCerealMedium.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Airbnb Cereal App';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Airbnb Cereal App'), url('https://fonts.cdnfonts.com/s/22260/AirbnbCerealBold.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Airbnb Cereal App';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Airbnb Cereal App'), url('https://fonts.cdnfonts.com/s/22260/AirbnbCerealExtraBold.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Airbnb Cereal App';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Airbnb Cereal App'), url('https://fonts.cdnfonts.com/s/22260/AirbnbCerealBlack.woff') format('woff');
+  font-display: swap;
+}

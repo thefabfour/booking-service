@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo:4
+    ports:
+      - 27017:27017
+
+  server:
+    build: ./
+    image: joxmar/fecserverec2
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    depends_on: 
+      - mongo
+    ports: 
+      - 80:3001
