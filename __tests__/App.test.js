@@ -38,7 +38,7 @@ describe('App', () => {
   })
 
   it('selects a checkout date when a second day is picked on calendar', async () => {
-    const { findByText, getByText } = render(<App />);
+    const { findByText, getByText, debug } = render(<App />);
 
     const addDate = await findByText(/CHECK-IN/);
     userEvent.click(addDate);
@@ -49,7 +49,7 @@ describe('App', () => {
     const checkOut = getByText(/30/);
     userEvent.click(checkOut);
 
-    expect(getByText(/Total/)).toBeInTheDocument();
+    expect(await findByText(/Total/)).toBeInTheDocument();
   })
 
   it('does not select a checkout date when a second day invalid', async () => {
