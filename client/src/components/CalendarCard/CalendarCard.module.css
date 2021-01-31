@@ -1,6 +1,7 @@
 .container {
   position: absolute;
   top: 10rem;
+  right: 115rem;
   padding: 2.4rem 3.2rem 1.6rem 3.2rem;
   border: 0.1rem solid var(--lightGrey);
   border-radius: 1.2rem;
